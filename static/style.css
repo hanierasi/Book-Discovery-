@@ -1,0 +1,86 @@
+/*General page styles*/
+body {
+    margin : 0;
+    font-family: Arial,sans-serif;
+    background-color: #F5F0E7;
+}
+
+/* Logo */
+.logo {
+    color: #D6BC85;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+/* Header */
+.site-header {
+    background-color: #123C35;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 5%;
+}
+/* Navigation Menu */
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* Navigation Links */
+.main-nav a {
+    color: #F5F0E7;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+
+/* Navigation Hover Effect */
+.main-nav a:hover {
+    color: #D6BC85;
+}
+
+/* Sign In Link */
+.login-link {
+    color: #123C35;
+    background-color: #D6BC85;
+    padding: 10px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* Sign In Hover Effect */
+.login-link:hover {
+    background-color: #E5D3A9;
+}
+
+
+
+
+
+
+/* Responsive Header */
+@media (max-width: 768px) {
+    .site-header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .main-nav {
+        width: 100%;
+        gap: 16px;
+    }
+
+    .login-link {
+        margin-top: 4px;
+    }
+}
