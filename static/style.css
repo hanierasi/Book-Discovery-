@@ -1,11 +1,13 @@
-/*General page styles*/
+
+/* ============ General Page Styles ============ */
 body {
-    margin : 0;
-    font-family: Arial,sans-serif;
+    margin: 0;
+    font-family: Arial, sans-serif;
     background-color: #F5F0E7;
 }
 
-/* Logo */
+
+/* ============ Logo ============ */
 .logo {
     color: #D6BC85;
     font-size: 24px;
@@ -14,17 +16,18 @@ body {
     white-space: nowrap;
 }
 
-/* Header */
+/* ============ Header ============ */
 .site-header {
-    background-color: #123C35;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px 5%;
+    background-color: #123C35;
 }
-/* Navigation Menu */
+
+/* ============ Navigation Menu ============ */
 .main-nav {
     display: flex;
     align-items: center;
@@ -32,6 +35,7 @@ body {
     flex-wrap: wrap;
     gap: 20px;
 }
+
 
 /* Navigation Links */
 .main-nav a {
@@ -47,7 +51,7 @@ body {
     color: #D6BC85;
 }
 
-/* Sign In Link */
+/* ============ Sign In Link ============ */
 .login-link {
     color: #123C35;
     background-color: #D6BC85;
@@ -58,29 +62,120 @@ body {
     white-space: nowrap;
 }
 
+
 /* Sign In Hover Effect */
 .login-link:hover {
     background-color: #E5D3A9;
 }
 
+/* ============ Hero Section ============ */
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    max-width: 900px;
+    margin: 45px auto;
+    padding: 28px 32px;
+    background-color: #F5F0E7;
+    border-radius: 16px;
+}
 
 
+/* Main Heading */
+.hero-content h1 {
+    flex: 1;
+    margin: 0;
+    color: #123C35;
+    font-size: 30px;
+    line-height: 1.3;
+}
+
+/* ============ Search Form ============ */
+.search-form {
+    display: flex;
+    flex: 1;
+    gap: 10px;
+    max-width: 420px;
+    margin: 0;
+}
 
 
+/* Search Input */
+.search-form input {
+    flex: 1;
+    min-width: 0;
+    padding: 11px 14px;
+    border: 1px solid #D6BC85;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    color: #123C35;
+    font-size: 14px;
+}
 
-/* Responsive Header */
+
+/* Search Input Focus */
+.search-form input:focus {
+    border-color: #1D5548;
+    outline: 2px solid #1D5548;
+    outline-offset: 2px;
+}
+
+
+/* Search Button */
+.search-form button {
+    padding: 11px 18px;
+    border: none;
+    border-radius: 8px;
+    background-color: #123C35;
+    color: #FFFFFF;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+/* Search Button Hover */
+.search-form button:hover {
+    background-color: #1D5548;
+}
+
+/* ============ Responsive Header & Search ============ */
 @media (max-width: 768px) {
+    /* Header */
     .site-header {
         justify-content: center;
         text-align: center;
     }
 
+    /* Navigation */
     .main-nav {
         width: 100%;
         gap: 16px;
     }
 
+    /* Sign In */
     .login-link {
         margin-top: 4px;
+    }
+
+    /* Hero Section */
+    .hero-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        margin: 28px 16px;
+        padding: 22px 20px;
+    }
+
+    /* Main Heading */
+    .hero-content h1 {
+        font-size: 26px;
+    }
+
+    /* Search Form */
+    .search-form {
+        flex: none;
+        width: 100%;
+        max-width: none;
     }
 }

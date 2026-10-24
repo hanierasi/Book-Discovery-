@@ -20,5 +20,25 @@
     </nav>
     <a href="#" class="login-link">Sign In</a>
 </header>
+<main>
+    <div class="hero-content">
+        <h1>Explore a World of Books</h1>
+
+        <form class="search-form" action="/" method="GET">
+            <input
+                type="text"
+                name="query"
+                placeholder="Enter a book title..."
+            >
+            <button type="submit">Search</button>
+
+        </form>
+    </div>
+
+{% if query %}
+    <p>You searched for: {{ query }}</p>
+{% endif %}
+
+</main>
 </body>
 </html>
