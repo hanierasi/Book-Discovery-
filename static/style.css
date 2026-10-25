@@ -140,17 +140,17 @@ body {
 }
 
 /* ============ search result ============ */
-.search-results {
+.search-result {
     max-width: 1100px;
     margin: 50px auto;
     padding: 0 24px;
 }
-.search-results h2 {
+.search-result h2 {
     color: #123C35;
     margin-bottom: 24px;
 }
 /* ============ Book Grid ============ */
-.book-grid{
+.book-graid{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 24px;
@@ -163,6 +163,25 @@ body {
     border-radius: 12px;
     text-align: center;
 }
+
+/* View Details Link */
+
+.book-card a {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 10px 18px;
+    background-color: #123C35;
+    color: #F5F0E7;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+.book-card a:hover {
+    background-color: #1D5548;
+}
+
 /* ============ Search Results ============ */
 .search-results {
     max-width: 1100px;
@@ -178,7 +197,7 @@ body {
 /* ============ Book Grid ============ */
 .book-grid {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 24px;
 }
 

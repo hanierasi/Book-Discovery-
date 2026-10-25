@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ book.title }} | Book Discovery</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="site-header">
+    <a href="{{url_for('home')}}"class="logo">Book Discovery</a>
+</header>
+<main class="book-detail">
+    <h1> {{book.title}} </h1>
+
+    {%if book.description %}
+        <h2>About this book</h2>
+        {%if book.description is mapping%}
+            <p>{{book.description.value}}</p>
+        {%else%}
+            <p>{{book.discription}}</p>
+        {%endif%}
+    {%else%}
+        <p>No description  is available for this book</p>
+    {%endif%}
+        <a href="{{ url_for('home') }}">Back to Search</a> "
+</main>
+
+</body>
+</html>

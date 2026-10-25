@@ -12,7 +12,7 @@ def home():
         url = "https://openlibrary.org/search.json"
         params = {
             "q": query,
-            "fields": "title,author_name,first_publish_year,cover_i",
+            "fields": "key,title,author_name,first_publish_year,cover_i",
             "limit": 12
          }
 
@@ -25,5 +25,19 @@ def home():
         query=query,
         books=books
     )
+
+
+@app.route("/book/<path:book_key>")
+def book(book_key):
+    url = f"https://openlibrary.org/{book_key}.json"
+
+    response = requests.get(url, timeout=10)
+    book = response.json()
+
+    return render_template(
+        "book_detail.html",
+        book=book
+    )
+
 if __name__ == "__main__":
     app.run(debug=True)
