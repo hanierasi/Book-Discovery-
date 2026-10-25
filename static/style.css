@@ -139,6 +139,59 @@ body {
     background-color: #1D5548;
 }
 
+/* ============ search result ============ */
+.search-results {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 24px;
+}
+.search-results h2 {
+    color: #123C35;
+    margin-bottom: 24px;
+}
+/* ============ Book Grid ============ */
+.book-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
+}
+/* ============ Book Card ============ */
+.book-card {
+    padding: 18px;
+    background-color: #FFFFFF;
+    border: 1px solid #E5DCCB;
+    border-radius: 12px;
+    text-align: center;
+}
+/* ============ Search Results ============ */
+.search-results {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 24px;
+}
+
+.search-results h2 {
+    color: #123C35;
+    margin-bottom: 24px;
+}
+
+/* ============ Book Grid ============ */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 24px;
+}
+
+/* ============ Book Card ============ */
+.book-card {
+    padding: 18px;
+    background-color: #FFFFFF;
+    border: 1px solid #E5DCCB;
+    border-radius: 12px;
+    text-align: center;
+}
+
+
 /* ============ Responsive Header & Search ============ */
 @media (max-width: 768px) {
     /* Header */

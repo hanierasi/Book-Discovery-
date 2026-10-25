@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -26,19 +26,44 @@
 
         <form class="search-form" action="/" method="GET">
             <input
-                type="text"
-                name="query"
-                placeholder="Enter a book title..."
+                    type="text"
+                    name="query"
+                    placeholder="Enter a book title..."
             >
             <button type="submit">Search</button>
 
         </form>
     </div>
 
-{% if query %}
-    <p>You searched for: {{ query }}</p>
-{% endif %}
+    {%if query%}
+    <section class="search-result">
+        <h2>Result for "{{query}}"</h2>
+        {% if books %}
+        <div class="book-graid">
+            {%for book in books%}
+            <article class="book-card">
+                <h3>{{book.title}}</h3>
+                {% if book.cover_i%}
+                <img
+                src="https://covers.openlibrary.org/b/id/{{ book.cover_i }}-M.jpg"
+                alt="cover of {{book.title}}">
+                {% endif %}
 
+                {%if book.autor_name%}
+                <p>Author : {{book.author_name | join(", ") }}</p>
+                {%endif %}
+
+                {%if book.first_publish_year%}
+                <p>First published:{{book.first_publish_year}}</p>
+                {%endif%}
+            </article>
+            {%endfor%}
+        </div>
+        {% else %}
+        <p>No books found. Try another search.</p>
+        {%endif%}
+    </section>
+    {%endif%}
 </main>
 </body>
 </html>
