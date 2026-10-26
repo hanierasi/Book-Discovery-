@@ -1,4 +1,5 @@
 .idea/
 .venv/
+book_discovery.db
 __pycache__/
 *.pyc
