@@ -211,6 +211,51 @@ body {
 }
 
 
+/* =========================
+   Book Detail Page
+========================= */
+
+.book-detail {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 32px;
+    background-color: #F5F0E7;
+    border-radius: 12px;
+}
+
+.book-detail h1 {
+    color: #123C35;
+    font-size: 32px;
+    margin-bottom: 24px;
+}
+
+.book-detail h2 {
+    color: #1D5548;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.book-detail p {
+    color: #333333;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+.book-detail a {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #123C35;
+    color: #F5F0E7;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.book-detail a:hover {
+    background-color: #1D5548;
+}
+
 /* ============ Responsive Header & Search ============ */
 @media (max-width: 768px) {
     /* Header */
