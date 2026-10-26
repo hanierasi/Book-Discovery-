@@ -1,4 +1,5 @@
 import sqlite3
+from werkzeug.security import generate_password_hash
 
 def get_connection():
     connection  = sqlite3.connect("book_discovery.db")
@@ -31,7 +32,18 @@ def init_db():
     connection.commit()
     connection.close()
 
+def add_user(username, password):
+    connection = get_connection()
 
+    password_hash = generate_password_hash(password)
+
+    connection.execute(
+        "INSERT INTO users (username, password_hash) VALUES (?, ?)",
+        (username, password_hash)
+    )
+
+    connection.commit()
+    connection.close()
 
 if __name__ == "__main__":
     init_db()
