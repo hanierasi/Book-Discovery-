@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 import sqlite3
-from database import add_user
+from database import add_user , verify_user
 import requests
 
 app = Flask(__name__)
@@ -60,6 +60,21 @@ def register():
             return redirect(url_for("register"))
 
     return render_template("register.html")
+
+@app.route("/login",methods=["GET","POST"])
+def login():
+    if request.method == "POST":
+        username = request.form.get("username")
+        password = request.form.get("password")
+
+        if verify_user(username, password):
+            flash("Login successful!", "success")
+            return redirect(url_for("home"))
+
+        flash("Invalid username or password.", "error")
+        return redirect(url_for("login"))
+
+    return render_template("login.html")
 
 
 if __name__ == "__main__":

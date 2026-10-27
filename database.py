@@ -1,5 +1,5 @@
 import sqlite3
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 
 def get_connection():
     connection  = sqlite3.connect("book_discovery.db")
@@ -44,6 +44,19 @@ def add_user(username, password):
 
     connection.commit()
     connection.close()
+
+def verify_user(username, password):
+  connection = get_connection()
+
+  user=connection.execute("SELECT password_hash FROM users WHERE username= ?",
+                          (username ,)).fetchone()
+  connection.close()
+
+  if user and check_password_hash(user[0],password):
+      return True
+  return False
+
+
 
 if __name__ == "__main__":
     init_db()

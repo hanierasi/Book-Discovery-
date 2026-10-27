@@ -150,7 +150,7 @@ body {
     margin-bottom: 24px;
 }
 /* ============ Book Grid ============ */
-.book-graid{
+.book-grid{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 24px;
@@ -201,16 +201,6 @@ body {
     gap: 24px;
 }
 
-/* ============ Book Card ============ */
-.book-card {
-    padding: 18px;
-    background-color: #FFFFFF;
-    border: 1px solid #E5DCCB;
-    border-radius: 12px;
-    text-align: center;
-}
-
-
 /* =========================
    Book Detail Page
 ========================= */
@@ -255,6 +245,114 @@ body {
 .book-detail a:hover {
     background-color: #1D5548;
 }
+
+/* Sign In and Register Pages */
+
+.auth-page {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 40px;
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.06);
+}
+
+.auth-card h1 {
+    margin: 8px 0 12px;
+    color: #1d4ed8;
+    font-size: 2rem;
+}
+
+.auth-description {
+    margin-bottom: 28px;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+.auth-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.auth-card label {
+    margin-top: 8px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.auth-card input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font: inherit;
+    outline: none;
+}
+
+.auth-card input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.auth-card button {
+    margin-top: 14px;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2563eb;
+    color: #ffffff;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.auth-card button:hover {
+    background-color: #1d4ed8;
+}
+
+.auth-switch {
+    margin-top: 24px;
+    text-align: center;
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+.auth-card a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.auth-card a:hover {
+    text-decoration: underline;
+}
+
+.auth-card .error {
+    color: #dc2626;
+}
+
+.auth-card .success {
+    color: #15803d;
+}
+
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 28px 22px;
+    }
+}
+
+
 
 /* ============ Responsive Header & Search ============ */
 @media (max-width: 768px) {

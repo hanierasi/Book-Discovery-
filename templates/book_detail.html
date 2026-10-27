@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ book.title }} | Book Discovery</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -17,12 +18,12 @@
         {%if book.description is mapping%}
             <p>{{book.description.value}}</p>
         {%else%}
-            <p>{{book.discription}}</p>
+            <p>{{book.description}}</p>
         {%endif%}
     {%else%}
         <p>No description  is available for this book</p>
     {%endif%}
-        <a href="{{ url_for('home') }}">Back to Search</a> "
+        <a href="{{ url_for('home') }}">Back to Search</a>
 </main>
 
 </body>
