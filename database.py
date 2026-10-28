@@ -46,15 +46,19 @@ def add_user(username, password):
     connection.close()
 
 def verify_user(username, password):
-  connection = get_connection()
+    connection = get_connection()
 
-  user=connection.execute("SELECT password_hash FROM users WHERE username= ?",
-                          (username ,)).fetchone()
-  connection.close()
+    user = connection.execute(
+        "SELECT id, password_hash FROM users WHERE username = ?",
+        (username,)
+    ).fetchone()
 
-  if user and check_password_hash(user[0],password):
-      return True
-  return False
+    connection.close()
+
+    if user and check_password_hash(user[1], password):
+        return user[0]
+
+    return None
 
 
 

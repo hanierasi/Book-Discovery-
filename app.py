@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash , session
 import sqlite3
 from database import add_user , verify_user
 import requests
@@ -61,13 +61,18 @@ def register():
 
     return render_template("register.html")
 
-@app.route("/login",methods=["GET","POST"])
+@app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
         username = request.form.get("username")
         password = request.form.get("password")
 
-        if verify_user(username, password):
+        user_id = verify_user(username, password)
+
+        if user_id:
+            session["user_id"] = user_id
+            session["username"] = username
+
             flash("Login successful!", "success")
             return redirect(url_for("home"))
 
@@ -76,6 +81,11 @@ def login():
 
     return render_template("login.html")
 
+@app.route("/logout")
+def logout():
+    session.clear()
+    flash("Logout successful!", "success")
+    return redirect(url_for("home"))
 
 if __name__ == "__main__":
     app.run(debug=True)
