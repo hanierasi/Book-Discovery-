@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Library | Book Discovery</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="site-header">
+    <a href="{{ url_for('home') }}" class="logo">Book Discovery</a>
+
+    <nav class="main-nav">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('my_library') }}">My Library</a>
+    </nav>
+
+    <span>Welcome, {{ session.get("username") }}</span>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</header>
+
+<main>
+    <section class="search-result">
+        <h1>My Library</h1>
+        <p>Your personal collection of saved books.</p>
+
+        {% if books %}
+            <div class="book-grid">
+                {% for book in books %}
+                    <article class="book-card">
+                        <h3>{{ book[0].split("/")[-1] }}</h3>
+
+                        <p>Status: {{ book[1] }}</p>
+
+                        <a href="{{ url_for('book', book_key=book[0]) }}">
+                            View Details
+                        </a>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>Your library is empty. Search for books and save them here!</p>
+        {% endif %}
+    </section>
+</main>
+
+</body>
+</html>

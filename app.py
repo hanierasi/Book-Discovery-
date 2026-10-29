@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash , session
 import sqlite3
-from database import add_user , verify_user
+from database import add_user , verify_user,save_book,get_user_books
 import requests
 
 app = Flask(__name__)
@@ -86,6 +86,32 @@ def logout():
     session.clear()
     flash("Logout successful!", "success")
     return redirect(url_for("home"))
+
+@app.route("/save-book/<path:book_key>", methods=["POST"])
+def save_book_route(book_key):
+    if not session.get("user_id"):
+        flash("Please sign in to save books.", "error")
+        return redirect(url_for("login"))
+
+    user_id = session["user_id"]
+
+    save_book(user_id, book_key)
+
+    flash("Book saved or already in your library.", "success")
+
+    return redirect(url_for("home", query=request.form.get("query", "")))
+
+@app.route("/my-library")
+def my_library():
+    if not session.get("user_id"):
+        flash("Please sign in to view your library.", "error")
+        return redirect(url_for("login"))
+
+    user_id = session["user_id"]
+
+    books = get_user_books(user_id)
+
+    return render_template("my_library.html", books=books)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -60,6 +60,34 @@ def verify_user(username, password):
 
     return None
 
+def save_book(user_id,book_key):
+    connection = get_connection()
+
+    connection.execute(
+        """
+        INSERT OR IGNORE INTO user_books(user_id,book_key)
+        VALUES (?, ?)
+        """,
+        (user_id,book_key)
+    )
+    connection.commit()
+    connection.close()
+
+def get_user_books(user_id):
+    connection = get_connection()
+
+    books = connection.execute(
+        """
+        SELECT book_key, status
+        FROM user_books
+        WHERE user_id = ?
+        """,
+        (user_id,)
+    ).fetchall()
+
+    connection.close()
+
+    return books
 
 
 if __name__ == "__main__":
